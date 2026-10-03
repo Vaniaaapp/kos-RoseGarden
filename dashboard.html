@@ -1,0 +1,662 @@
+ Index · HTML
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kos Melati — Info Penghuni</title>
+    <style>
+         :root {
+            --bg: #f7f5f0;
+            --card: #ffffff;
+            --text: #252525;
+            --muted: #77746d;
+            --line: #e9e5dc;
+            --accent: #6d7b5d;
+            --accent-dark: #566247;
+            --soft: #eef1e9;
+            --warning: #f7efe0;
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        body {
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .container {
+            max-width: 760px;
+            margin: auto;
+            padding: 0 20px 40px
+        }
+        
+        header {
+            background: var(--accent);
+            color: #fff;
+            padding: 28px 20px 30px
+        }
+        
+        .header-inner {
+            max-width: 760px;
+            margin: auto
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 999px;
+            padding: 7px 11px;
+            font-size: 12px;
+            margin-bottom: 18px;
+        }
+        
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #dbe8c9
+        }
+        
+        h1 {
+            font-size: 28px;
+            line-height: 1.15;
+            margin: 0 0 7px;
+            font-weight: 750
+        }
+        
+        .header-sub {
+            margin: 0;
+            color: rgba(255, 255, 255, .8);
+            font-size: 14px
+        }
+        
+        .room {
+            margin-top: 20px;
+            background: #fff;
+            color: var(--text);
+            border-radius: 16px;
+            padding: 15px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+        }
+        
+        .room small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-bottom: 3px
+        }
+        
+        .room strong {
+            font-size: 17px
+        }
+        
+        .section {
+            margin-top: 26px
+        }
+        
+        .section-title {
+            margin-bottom: 11px
+        }
+        
+        .section-title h2 {
+            font-size: 18px;
+            margin: 0
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+        
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px
+        }
+        
+        .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            background: var(--soft);
+            color: var(--accent-dark);
+            display: grid;
+            place-items: center;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 13px
+        }
+        
+        .icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+        
+        .card h3 {
+            font-size: 14px;
+            margin: 0 0 6px
+        }
+        
+        .card p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0
+        }
+        
+        .card p strong {
+            color: var(--text)
+        }
+        
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+        
+        .btn-small {
+            border: 1px solid var(--line);
+            background: var(--soft);
+            color: var(--accent-dark);
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer
+        }
+        
+        .btn-main {
+            display: inline-block;
+            margin-top: 10px;
+            border: 0;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #fff;
+            padding: 9px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer
+        }
+        
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+        
+        .contact {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 14px 16px
+        }
+        
+        .contact.onduty {
+            border-color: var(--accent);
+            background: #f6f9f1
+        }
+        
+        .contact-info h3 {
+            font-size: 14px;
+            margin: 0 0 3px
+        }
+        
+        .contact-info p {
+            font-size: 12px;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.5
+        }
+        
+        .tag {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 2px 8px;
+            margin-left: 6px;
+            vertical-align: middle
+        }
+        
+        .call {
+            flex: none;
+            text-decoration: none;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 10px;
+            padding: 9px 14px;
+            font-size: 12px;
+            font-weight: 700
+        }
+        
+        .facility-box {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 6px 16px
+        }
+        
+        .facility-box+.facility-box {
+            margin-top: 10px
+        }
+        
+        .facility-box h3 {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin: 12px 0 4px
+        }
+        
+        .f-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: 13px
+        }
+        
+        .f-item:last-child {
+            border-bottom: 0
+        }
+        
+        .f-item span:last-child {
+            color: var(--muted);
+            font-size: 12px;
+            text-align: right
+        }
+        
+        .announce {
+            background: var(--warning);
+            border: 1px solid #eee1c9;
+            border-radius: 16px;
+            padding: 16px
+        }
+        
+        .announce h3 {
+            font-size: 14px;
+            margin: 0 0 5px
+        }
+        
+        .announce p {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #71695c;
+            margin: 0
+        }
+        
+        .report {
+            margin-top: 26px;
+            background: var(--text);
+            color: #fff;
+            border-radius: 20px;
+            padding: 20px
+        }
+        
+        .report h2 {
+            font-size: 18px;
+            margin: 0 0 6px
+        }
+        
+        .report p {
+            font-size: 12px;
+            color: #c8c8c8;
+            margin: 0 0 16px;
+            line-height: 1.5
+        }
+        
+        .report a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 12px;
+            background: #fff;
+            color: var(--text);
+            padding: 13px 16px;
+            font-weight: 750;
+            font-size: 14px
+        }
+        
+        footer {
+            text-align: center;
+            color: #aaa;
+            font-size: 11px;
+            margin-top: 28px
+        }
+        
+        @media(max-width:520px) {
+            .container {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+            header {
+                padding-left: 16px;
+                padding-right: 16px
+            }
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="badge"><span class="badge-dot"></span> Info Penghuni</div>
+            <h1 id="kosName"></h1>
+            <p class="header-sub">Semua informasi kos, dalam satu tempat.</p>
+            <div class="room">
+                <div>
+                    <small>KAMAR ANDA</small>
+                    <strong id="roomNumber">Kamar 01</strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Info Dasar</h2>
+            </div>
+            <div class="grid">
+
+                <div class="card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>
+                    </div>
+                    <h3>WiFi</h3>
+                    <p><strong>Nama:</strong> <span id="wifiName"></span></p>
+                    <div class="row">
+                        <p><strong>Password:</strong> <span id="wifiPass"></span></p>
+                        <button class="btn-small" onclick="copyText('wifiPass', this)">Salin</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg>
+                    </div>
+                    <h3>Aturan Kos</h3>
+                    <p>Berisi jam malam, ketenangan, kebersihan, dan aturan lainnya.</p>
+                    <a class="btn-main" id="rulesLink" target="_blank" rel="noopener">Buka PDF Aturan</a>
+                </div>
+
+                <div class="card">
+                    <div class="icon">Rp</div>
+                    <h3>Pembayaran</h3>
+                    <p id="payDue"></p>
+                    <p><strong>Bank:</strong> <span id="payBank"></span><br>
+                        <strong>Atas nama:</strong> <span id="payName"></span></p>
+                    <div class="row">
+                        <p><strong>No. Rek:</strong> <span id="payNumber"></span></p>
+                        <button class="btn-small" onclick="copyText('payNumber', this)">Salin</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <h3>Kontak Pemilik</h3>
+                    <p><strong id="ownerName"></strong><br><span id="ownerPhone"></span></p>
+                    <a class="btn-main" id="ownerCall">Hubungi</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Kontak Darurat</h2>
+            </div>
+            <div class="contact-list" id="contactList"></div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Fasilitas</h2>
+            </div>
+            <div class="facility-box">
+                <h3>Fasilitas bersama</h3>
+                <div id="sharedFacilities"></div>
+            </div>
+            <div class="facility-box">
+                <h3>Di dalam kamar</h3>
+                <div id="roomFacilities"></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-title">
+                <h2>Pengumuman</h2>
+            </div>
+            <div class="announce" id="announcements"></div>
+        </section>
+
+        <section class="report">
+            <h2>Ada fasilitas yang bermasalah?</h2>
+            <p>Isi form laporan, nanti diteruskan ke pemilik kos. Nomor kamar Anda sudah otomatis terisi.</p>
+            <a id="reportLink" target="_blank" rel="noopener">Laporkan Kerusakan</a>
+        </section>
+
+        <footer id="footer"></footer>
+    </main>
+
+    <script>
+        /* ==========================================================
+                                           DATA KOS — EDIT BAGIAN INI SAJA UNTUK MENGUBAH ISI HALAMAN
+                                           Ubah teks di antara tanda kutip "..." lalu simpan.
+                                           Jangan hapus tanda kutip, koma, atau kurung.
+                                           ========================================================== */
+        const KOS = {
+            nama: "Kos Rode Garden",
+
+            wifi: {
+                nama: "RoseGarden",
+                password: "rosegarden2026"
+            },
+
+            // Nama file PDF aturan (taruh di folder yang sama dengan index.html)
+            aturanPdf: "aturan-kos.pdf",
+
+            pembayaran: {
+                bank: "BCA",
+                noRek: "12349876",
+                atasNama: "Melati",
+                batas: "Pembayaran paling lambat tanggal 5 setiap bulan melalui transfer."
+
+            },
+
+            pemilik: {
+                nama: "Bu Aisyah",
+                telepon: "0856-7722-9912"
+            },
+
+            // hari: 0=Minggu 1=Senin 2=Selasa 3=Rabu 4=Kamis 5=Jumat 6=Sabtu
+            // Kalau tidak ada jadwal hari, hapus baris "hari" dan "jadwal"-nya.
+            kontakDarurat: [{
+                peran: "Satpam",
+                nama: "Pak Budi",
+                telepon: "08123456789",
+                jadwal: "Senin – Kamis",
+                hari: [1, 2, 3, 4]
+            }, {
+                peran: "Satpam",
+                nama: "Pak Tono",
+                telepon: "08987654321",
+                jadwal: "Jumat – Minggu",
+                hari: [5, 6, 0]
+            }, {
+                peran: "Mba Kos",
+                nama: "Mba Wati",
+                telepon: "08345678219"
+            }, {
+                peran: "Teknisi (perbaikan fasilitas)",
+                nama: "Mas Wawan",
+                telepon: "0987123456"
+            }],
+
+            fasilitasBersama: [{
+                nama: "Mesin cuci",
+                cara: "Bersihkan setelah dipakai"
+            }, {
+                nama: "Dapur",
+                cara: "Matikan kompor, bersihkan area"
+            }, {
+                nama: "Dispenser",
+                cara: "Isi ulang galon jika habis"
+            }, {
+                nama: "Jemuran",
+                cara: "Pakai bagian yang tersedia"
+            }, {
+                nama: "Toilet umum",
+                cara: "Jaga kebersihan"
+            }, {
+                nama: "WiFi",
+                cara: "Lihat bagian Info Dasar"
+            }],
+
+            fasilitasKamar: ["AC", "Lemari", "Meja", "Kursi", "Kasur"],
+
+            pengumuman: [{
+                judul: "Pembersihan area bersama",
+                isi: "Pembersihan dapur dan ruang bersama dilakukan setiap Minggu pukul 09.00."
+            }],
+
+            // Link Google Form laporan kerusakan (lihat panduan di chat).
+            // formUrl  = link form yang berakhiran /viewform
+            // formKamarEntry = kode "entry.xxxxxxx" dari kolom Kamar di form
+            formUrl: "https://forms.gle/CHudznmCe3hqwHV8A",
+            formKamarEntry: "entry.0000000000"
+        };
+        /* ==================== AKHIR BAGIAN DATA ==================== */
+
+
+        /* ---- Kode di bawah ini tidak perlu diubah ---- */
+        const $ = id => document.getElementById(id);
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;'
+        }[c]));
+        const telHref = n => 'tel:' + String(n).replace(/[^0-9+]/g, '');
+
+        // Nomor kamar dari link NFC: ?kamar=12
+        const kamar = new URLSearchParams(location.search).get('kamar');
+        const kamarText = kamar ? 'Kamar ' + kamar : 'Kamar -';
+        $('roomNumber').textContent = kamarText;
+
+        document.title = KOS.nama + ' — Info Penghuni';
+        $('kosName').textContent = KOS.nama;
+        $('footer').textContent = KOS.nama + ' · Informasi penghuni';
+
+        $('wifiName').textContent = KOS.wifi.nama;
+        $('wifiPass').textContent = KOS.wifi.password;
+        $('rulesLink').href = KOS.aturanPdf;
+
+        $('payDue').textContent = KOS.pembayaran.batas;
+        $('payBank').textContent = KOS.pembayaran.bank;
+        $('payName').textContent = KOS.pembayaran.atasNama;
+        $('payNumber').textContent = KOS.pembayaran.noRek;
+
+        $('ownerName').textContent = KOS.pemilik.nama;
+        $('ownerPhone').textContent = KOS.pemilik.telepon;
+        $('ownerCall').href = telHref(KOS.pemilik.telepon);
+
+        // Kontak darurat, tandai satpam yang bertugas hari ini
+        const today = new Date().getDay();
+        $('contactList').innerHTML = KOS.kontakDarurat.map(k => {
+            const onDuty = k.hari && k.hari.includes(today);
+            return `
+    <div class="contact${onDuty ? ' onduty' : ''}">
+      <div class="contact-info">
+        <h3>${esc(k.nama)}${onDuty ? '<span class="tag">Bertugas hari ini</span>' : ''}</h3>
+        <p>${esc(k.peran)}${k.jadwal ? ' · ' + esc(k.jadwal) : ''}<br>${esc(k.telepon)}</p>
+      </div>
+      <a class="call" href="${telHref(k.telepon)}">Telepon</a>
+    </div>`;
+        }).join('');
+
+        $('sharedFacilities').innerHTML = KOS.fasilitasBersama.map(f =>
+            `<div class="f-item"><span>${esc(f.nama)}</span><span>${esc(f.cara)}</span></div>`).join('');
+        $('roomFacilities').innerHTML = KOS.fasilitasKamar.map(f =>
+            `<div class="f-item"><span>${esc(f)}</span></div>`).join('');
+
+        $('announcements').innerHTML = KOS.pengumuman.map(p =>
+            `<h3>${esc(p.judul)}</h3><p>${esc(p.isi)}</p>`).join('<br>');
+
+        // Link form laporan, nomor kamar terisi otomatis
+        (function() {
+            const a = $('reportLink');
+            if (KOS.formUrl.startsWith('GANTI')) {
+                a.href = '#';
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    alert('Link Google Form belum dipasang. Isi "formUrl" di bagian data KOS.');
+                });
+                return;
+            }
+            let url = KOS.formUrl;
+            if (kamar) {
+                url += (url.includes('?') ? '&' : '?') + 'usp=pp_url&' + KOS.formKamarEntry + '=' + encodeURIComponent(kamarText);
+            }
+            a.href = url;
+        })();
+
+        function copyText(id, btn) {
+            const text = $(id).textContent;
+            const done = () => {
+                const old = btn.textContent;
+                btn.textContent = 'Tersalin';
+                setTimeout(() => btn.textContent = old, 1500);
+            };
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(done, done);
+            } else {
+                const t = document.createElement('textarea');
+                t.value = text;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand('copy');
+                t.remove();
+                done();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
